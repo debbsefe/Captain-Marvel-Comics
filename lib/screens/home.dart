@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
             latestNews(),
             gridView(),
             videoView(context),
-            comicView(),
+            ComicView(),
             promo(context),
             footer(),
           ],
