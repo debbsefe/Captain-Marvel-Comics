@@ -2,11 +2,12 @@ import 'package:captain_marvel/models/api.dart';
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:captain_marvel/services/keys.dart';
 
 class Api {
   final ts = DateTime.now().toString();
-  final apikey = '47b584ea6c2bd191508666c800f3b20e';
-  final pk = '9d52171bd4220520e6b55b83461a0f344657fa98';
+  String apikey = Keys().apikey;
+  String pk = Keys().pk;
   String generateMd5() {
     try {
       String hash = md5.convert(utf8.encode(ts + pk + apikey)).toString();
