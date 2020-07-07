@@ -364,7 +364,7 @@ class Dates {
 
 class Prices {
   String type;
-  double price;
+  num price;
 
   Prices({this.type, this.price});
 

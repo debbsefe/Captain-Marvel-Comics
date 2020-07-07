@@ -1,4 +1,4 @@
-import 'package:captain_marvel/screens/home.dart';
+import 'package:captain_marvel/screens/home/home.dart';
 import 'package:flutter/material.dart';
 
 class HomeTab extends StatefulWidget {

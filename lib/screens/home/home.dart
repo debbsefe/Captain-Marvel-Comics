@@ -1,8 +1,9 @@
-import 'package:captain_marvel/widgets/comic-home-widget.dart';
-import 'package:captain_marvel/widgets/footer.dart';
-import 'package:captain_marvel/widgets/main-home-widget.dart';
-import 'package:captain_marvel/widgets/promo-widget.dart';
-import 'package:captain_marvel/widgets/top-home-widget.dart';
+import 'package:captain_marvel/screens/home/widgets/comic-home-widget.dart';
+import 'package:captain_marvel/screens/home/widgets/drawer.dart';
+import 'package:captain_marvel/screens/home/widgets/footer.dart';
+import 'package:captain_marvel/screens/home/widgets/main-home-widget.dart';
+import 'package:captain_marvel/screens/home/widgets/promo-widget.dart';
+import 'package:captain_marvel/screens/home/widgets/top-home-widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +17,7 @@ class HomePage extends StatelessWidget {
             style: TextStyle(
                 fontSize: 50,
                 backgroundColor: Colors.red,
-                letterSpacing: -4,
+                letterSpacing: -2,
                 fontWeight: FontWeight.w700),
           ),
           centerTitle: true,
@@ -30,24 +31,21 @@ class HomePage extends StatelessWidget {
             )
           ],
         ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              ListTile(
-                title: Text('Item 1'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
+        drawer: Theme(
+          data: Theme.of(context).copyWith(
+            canvasColor: Colors.black,
           ),
+          child: Drawer(child: drawer(context)),
         ),
         body: ListView(
           children: <Widget>[
             heroImage(context),
             heroText(context),
             socialLinks(context),
+            Padding(
+              padding: const EdgeInsets.all(0),
+              child: Divider(color: Colors.grey),
+            ),
             mainImage(),
             mainText(context),
             SizedBox(
@@ -56,7 +54,8 @@ class HomePage extends StatelessWidget {
             latestNews(),
             gridView(),
             videoView(context),
-            ComicView(),
+            comicHeading(),
+            ComicHomeView(),
             promo(context),
             footer(),
           ],
