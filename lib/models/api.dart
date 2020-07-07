@@ -91,17 +91,12 @@ class Results {
   String issn;
   String format;
   int pageCount;
-  List<TextObjects> textObjects;
   String resourceURI;
   List<Urls> urls;
   Series series;
-  // List<Variants> variants;
-  List<Null> collections;
-  List<Null> collectedIssues;
   List<Dates> dates;
   List<Prices> prices;
   Thumbnail thumbnail;
-  // List<Images> images;
   Creators creators;
   Creators characters;
   Creators stories;
@@ -122,17 +117,12 @@ class Results {
       this.issn,
       this.format,
       this.pageCount,
-      this.textObjects,
       this.resourceURI,
       this.urls,
       this.series,
-      // this.variants,
-      this.collections,
-      this.collectedIssues,
       this.dates,
       this.prices,
       this.thumbnail,
-      // this.images,
       this.creators,
       this.characters,
       this.stories,
@@ -153,12 +143,7 @@ class Results {
     issn = json['issn'];
     format = json['format'];
     pageCount = json['pageCount'];
-    if (json['textObjects'] != null) {
-      textObjects = new List<TextObjects>();
-      json['textObjects'].forEach((v) {
-        textObjects.add(new TextObjects.fromJson(v));
-      });
-    }
+
     resourceURI = json['resourceURI'];
     if (json['urls'] != null) {
       urls = new List<Urls>();
@@ -168,24 +153,7 @@ class Results {
     }
     series =
         json['series'] != null ? new Series.fromJson(json['series']) : null;
-    // if (json['variants'] != null) {
-    //   variants = new List<Variants>();
-    //   json['variants'].forEach((v) {
-    //     variants.add(new Variants.fromJson(v));
-    //   });
-    // }
-    // if (json['collections'] != null) {
-    //   collections = new List<Null>();
-    //   json['collections'].forEach((v) {
-    //     collections.add(new Null.fromJson(v));
-    //   });
-    // }
-    // if (json['collectedIssues'] != null) {
-    //   collectedIssues = new List<Null>();
-    //   json['collectedIssues'].forEach((v) {
-    //     collectedIssues.add(new Null.fromJson(v));
-    //   });
-    // }
+
     if (json['dates'] != null) {
       dates = new List<Dates>();
       json['dates'].forEach((v) {
@@ -201,12 +169,7 @@ class Results {
     thumbnail = json['thumbnail'] != null
         ? new Thumbnail.fromJson(json['thumbnail'])
         : null;
-    // if (json['images'] != null) {
-    //   images = new List<Images>();
-    //   json['images'].forEach((v) {
-    //     images.add(new Images.fromJson(v));
-    //   });
-    // }
+
     creators = json['creators'] != null
         ? new Creators.fromJson(json['creators'])
         : null;
@@ -235,9 +198,7 @@ class Results {
     data['issn'] = this.issn;
     data['format'] = this.format;
     data['pageCount'] = this.pageCount;
-    if (this.textObjects != null) {
-      data['textObjects'] = this.textObjects.map((v) => v.toJson()).toList();
-    }
+
     data['resourceURI'] = this.resourceURI;
     if (this.urls != null) {
       data['urls'] = this.urls.map((v) => v.toJson()).toList();
@@ -245,16 +206,7 @@ class Results {
     if (this.series != null) {
       data['series'] = this.series.toJson();
     }
-    // if (this.variants != null) {
-    //   data['variants'] = this.variants.map((v) => v.toJson()).toList();
-    // }
-    // if (this.collections != null) {
-    //   data['collections'] = this.collections.map((v) => v.toJson()).toList();
-    // }
-    // if (this.collectedIssues != null) {
-    //   data['collectedIssues'] =
-    //       this.collectedIssues.map((v) => v.toJson()).toList();
-    // }
+
     if (this.dates != null) {
       data['dates'] = this.dates.map((v) => v.toJson()).toList();
     }
@@ -264,9 +216,7 @@ class Results {
     if (this.thumbnail != null) {
       data['thumbnail'] = this.thumbnail.toJson();
     }
-    // if (this.images != null) {
-    //   data['images'] = this.images.map((v) => v.toJson()).toList();
-    // }
+
     if (this.creators != null) {
       data['creators'] = this.creators.toJson();
     }
@@ -279,28 +229,6 @@ class Results {
     if (this.events != null) {
       data['events'] = this.events.toJson();
     }
-    return data;
-  }
-}
-
-class TextObjects {
-  String type;
-  String language;
-  String text;
-
-  TextObjects({this.type, this.language, this.text});
-
-  TextObjects.fromJson(Map<String, dynamic> json) {
-    type = json['type'];
-    language = json['language'];
-    text = json['text'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['type'] = this.type;
-    data['language'] = this.language;
-    data['text'] = this.text;
     return data;
   }
 }
@@ -453,28 +381,6 @@ class Items {
     return data;
   }
 }
-
-// class Items {
-//   String resourceURI;
-//   String name;
-//   String type;
-
-//   Items({this.resourceURI, this.name, this.type});
-
-//   Items.fromJson(Map<String, dynamic> json) {
-//     resourceURI = json['resourceURI'];
-//     name = json['name'];
-//     type = json['type'];
-//   }
-
-//   Map<String, dynamic> toJson() {
-//     final Map<String, dynamic> data = new Map<String, dynamic>();
-//     data['resourceURI'] = this.resourceURI;
-//     data['name'] = this.name;
-//     data['type'] = this.type;
-//     return data;
-//   }
-// }
 
 class Events {
   int available;

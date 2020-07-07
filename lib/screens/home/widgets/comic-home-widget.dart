@@ -1,8 +1,8 @@
 import 'package:captain_marvel/models/api.dart';
 import 'package:captain_marvel/screens/comics/comics-list.dart';
 import 'package:captain_marvel/services/api.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:transparent_image/transparent_image.dart';
 
 Widget comicHeading() {
   return Container(
@@ -38,7 +38,7 @@ class _ComicHomeViewState extends State<ComicHomeView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(30),
+      padding: EdgeInsets.fromLTRB(30, 0, 30, 30),
       color: Colors.white,
       child: FutureBuilder(
           future: captain,
@@ -51,28 +51,33 @@ class _ComicHomeViewState extends State<ComicHomeView> {
             Captain captain = snapshot.data;
             Data data = captain.data;
             List<Results> results = data.results;
-            return ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: 300),
-              child: ListView.builder(
-                  itemCount: results.length,
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    Thumbnail thumbnail = results[index].thumbnail;
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GestureDetector(
-                        onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => ComicList(results: results))),
-                        child: FadeInImage.memoryNetwork(
-                            placeholder: kTransparentImage,
-                            image: thumbnail.path + '.' + thumbnail.extension),
+            return CarouselSlider.builder(
+                itemCount: results.length,
+                options: CarouselOptions(
+                  viewportFraction: 0.6,
+                  height: 340,
+                  enlargeCenterPage: true,
+                ),
+                itemBuilder: (context, index) {
+                  Thumbnail thumbnail = results[index].thumbnail;
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => ComicList(results: results))),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(40),
+                        ),
+                        child: Image(
+                            image: NetworkImage(
+                                thumbnail.path + '.' + thumbnail.extension)),
                       ),
-                    );
-                  }),
-            );
+                    ),
+                  );
+                });
           }),
     );
   }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 Widget latestNews() {
   return Container(
     color: Colors.black,
-    padding: const EdgeInsets.all(20.0),
+    padding: const EdgeInsets.fromLTRB(20.0, 35, 0, 35),
     child: Text(
       'LATEST NEWS',
       style: TextStyle(
@@ -15,15 +15,15 @@ Widget latestNews() {
   );
 }
 
-Widget gridView() {
+gridView(BuildContext context) {
   return Container(
+    height: MediaQuery.of(context).size.height * 1,
     color: Colors.black,
     child: GridView.count(
       shrinkWrap: true,
       crossAxisCount: 2,
-      // crossAxisSpacing: 120,
-      // mainAxisSpacing: 120,
-      // childAspectRatio: 120,
+      childAspectRatio: MediaQuery.of(context).size.width /
+          (MediaQuery.of(context).size.height),
       children: <Widget>[imageOne(), imageTwo(), imageThree(), imageFour()],
     ),
   );
@@ -164,12 +164,14 @@ Widget imageFour() {
 videoView(BuildContext context) {
   return Container(
     color: Colors.white,
-    padding: const EdgeInsets.all(30),
-    height: MediaQuery.of(context).size.height * 0.8,
+    padding: EdgeInsets.fromLTRB(30, 30, 30, 0),
+    height: MediaQuery.of(context).size.height * 0.9,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
+        SizedBox(
+          height: 20,
+        ),
         Text(
           'LATEST VIDEOS',
           style: TextStyle(
@@ -177,6 +179,15 @@ videoView(BuildContext context) {
               fontWeight: FontWeight.w800,
               color: Colors.black,
               fontFamily: 'RobotoCondensed'),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Image(
+          image: AssetImage('assets/images/latestnews4.jpg'),
+        ),
+        SizedBox(
+          height: 20,
         ),
         Text(
           'MARVEL CULTURE AND LIFESTYLE',
@@ -186,6 +197,9 @@ videoView(BuildContext context) {
               color: Colors.red,
               fontFamily: 'RobotoCondensed-Bold'),
         ),
+        SizedBox(
+          height: 20,
+        ),
         Text(
           'DIY Captain Marvel\'s Star of Hala!',
           style: TextStyle(
@@ -194,6 +208,9 @@ videoView(BuildContext context) {
               color: Colors.black,
               fontFamily: 'RobotoBold'),
         ),
+        SizedBox(
+          height: 20,
+        ),
         Text(
           'Your Marvel Mission was to create Captain Marvel\'s Star of Hala using only safe household items! Lorraine Cink highlights a few of her favorites while making her own Star of Hala!',
           style: TextStyle(
@@ -201,6 +218,32 @@ videoView(BuildContext context) {
             fontSize: 16,
           ),
         ),
+        SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Image.asset(
+              'assets/images/latestnews1.jpg',
+              fit: BoxFit.cover,
+              height: 100,
+              width: 100,
+            ),
+            Image.asset(
+              'assets/images/latestnews2.jpg',
+              fit: BoxFit.cover,
+              height: 100,
+              width: 100,
+            ),
+            Image.asset(
+              'assets/images/latestnews3.jpg',
+              fit: BoxFit.cover,
+              height: 100,
+              width: 100,
+            ),
+          ],
+        )
       ],
     ),
   );
