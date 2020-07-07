@@ -98,8 +98,6 @@ class Results {
   List<Prices> prices;
   Thumbnail thumbnail;
   Creators creators;
-  Creators characters;
-  Creators stories;
   Events events;
 
   Results(
@@ -124,8 +122,6 @@ class Results {
       this.prices,
       this.thumbnail,
       this.creators,
-      this.characters,
-      this.stories,
       this.events});
 
   Results.fromJson(Map<String, dynamic> json) {
@@ -173,11 +169,7 @@ class Results {
     creators = json['creators'] != null
         ? new Creators.fromJson(json['creators'])
         : null;
-    characters = json['characters'] != null
-        ? new Creators.fromJson(json['characters'])
-        : null;
-    stories =
-        json['stories'] != null ? new Creators.fromJson(json['stories']) : null;
+
     events =
         json['events'] != null ? new Events.fromJson(json['events']) : null;
   }
@@ -220,12 +212,7 @@ class Results {
     if (this.creators != null) {
       data['creators'] = this.creators.toJson();
     }
-    if (this.characters != null) {
-      data['characters'] = this.characters.toJson();
-    }
-    if (this.stories != null) {
-      data['stories'] = this.stories.toJson();
-    }
+
     if (this.events != null) {
       data['events'] = this.events.toJson();
     }
@@ -385,20 +372,14 @@ class Items {
 class Events {
   int available;
   String collectionURI;
-  List<Items> items;
   int returned;
 
-  Events({this.available, this.collectionURI, this.items, this.returned});
+  Events({this.available, this.collectionURI, this.returned});
 
   Events.fromJson(Map<String, dynamic> json) {
     available = json['available'];
     collectionURI = json['collectionURI'];
-    if (json['items'] != null) {
-      items = new List<Null>();
-      json['items'].forEach((v) {
-        items.add(new Items.fromJson(v));
-      });
-    }
+
     returned = json['returned'];
   }
 
@@ -406,9 +387,6 @@ class Events {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['available'] = this.available;
     data['collectionURI'] = this.collectionURI;
-    if (this.items != null) {
-      data['items'] = this.items.map((v) => v.toJson()).toList();
-    }
     data['returned'] = this.returned;
     return data;
   }

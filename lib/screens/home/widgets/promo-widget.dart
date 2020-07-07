@@ -30,13 +30,19 @@ promo(BuildContext context) {
               fontWeight: FontWeight.w800,
               fontFamily: 'RobotoBold'),
         ),
-        Container(
-          color: Color.fromRGBO(230, 36, 41, 1),
-          child: FlatButton(
-            onPressed: null,
-            child: Text(
-              'CHECK IT OUT',
-              style: TextStyle(color: Colors.white),
+        ClipRRect(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(20),
+            topLeft: Radius.circular(20),
+          ),
+          child: Container(
+            color: Color.fromRGBO(230, 36, 41, 1),
+            child: FlatButton(
+              onPressed: null,
+              child: Text(
+                'CHECK IT OUT',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
         )

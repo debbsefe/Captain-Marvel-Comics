@@ -117,13 +117,19 @@ mainText(BuildContext context) {
         SizedBox(
           height: 20,
         ),
-        Container(
-          color: Color.fromRGBO(230, 36, 41, 1),
-          child: FlatButton(
-            onPressed: null,
-            child: Text(
-              'WATCH NOW',
-              style: TextStyle(color: Colors.white),
+        ClipRRect(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(20),
+            topLeft: Radius.circular(20),
+          ),
+          child: Container(
+            color: Color.fromRGBO(230, 36, 41, 1),
+            child: FlatButton(
+              onPressed: null,
+              child: Text(
+                'WATCH NOW',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
         )

@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
             style: TextStyle(
                 fontSize: 50,
                 backgroundColor: Colors.red,
-                letterSpacing: -2,
+                letterSpacing: -1,
                 fontWeight: FontWeight.w700),
           ),
           centerTitle: true,
@@ -37,31 +37,33 @@ class HomePage extends StatelessWidget {
           ),
           child: Drawer(child: drawer(context)),
         ),
-        body: ListView(
-          children: <Widget>[
-            heroImage(context),
-            heroText(context),
-            socialLinks(context),
-            Padding(
-              padding: const EdgeInsets.all(0),
-              child: Divider(color: Colors.grey),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            mainImage(),
-            mainText(context),
-            SizedBox(
-              height: 100,
-            ),
-            latestNews(),
-            gridView(context),
-            videoView(context),
-            comicHeading(),
-            ComicHomeView(),
-            promo(context),
-            footer(),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              heroImage(context),
+              heroText(context),
+              socialLinks(context),
+              Padding(
+                padding: const EdgeInsets.all(0),
+                child: Divider(color: Colors.grey),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              mainImage(),
+              mainText(context),
+              SizedBox(
+                height: 100,
+              ),
+              latestNews(),
+              gridView(context),
+              videoView(context),
+              comicHeading(),
+              ComicHomeView(),
+              promo(context),
+              footer(),
+            ],
+          ),
         ));
   }
 }
