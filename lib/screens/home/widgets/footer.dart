@@ -168,37 +168,51 @@ footer() {
           children: <Widget>[
             IconButton(
               icon: FaIcon(FontAwesomeIcons.facebook),
-              onPressed: null,
+              onPressed: () {
+                print('yes');
+              },
               color: Colors.grey,
             ),
             IconButton(
               icon: FaIcon(FontAwesomeIcons.twitter),
-              onPressed: null,
+              onPressed: () {
+                print('yes');
+              },
               color: Colors.grey,
             ),
             IconButton(
               icon: FaIcon(FontAwesomeIcons.instagram),
-              onPressed: null,
+              onPressed: () {
+                print('yes');
+              },
               color: Colors.grey,
             ),
             IconButton(
               icon: FaIcon(FontAwesomeIcons.twitch),
-              onPressed: null,
+              onPressed: () {
+                print('yes');
+              },
               color: Colors.grey,
             ),
             IconButton(
               icon: FaIcon(FontAwesomeIcons.youtube),
-              onPressed: null,
+              onPressed: () {
+                print('yes');
+              },
               color: Colors.grey,
             ),
             IconButton(
               icon: FaIcon(FontAwesomeIcons.snapchat),
-              onPressed: null,
+              onPressed: () {
+                print('yes');
+              },
               color: Colors.grey,
             ),
             IconButton(
               icon: FaIcon(FontAwesomeIcons.pinterest),
-              onPressed: null,
+              onPressed: () {
+                print('yes');
+              },
               color: Colors.grey,
             ),
           ],

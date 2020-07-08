@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 100,
               ),
-              latestNews(),
+              latestNews(context),
               gridView(context),
               videoView(context),
               comicHeading(),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-Widget latestNews() {
+latestNews(BuildContext context) {
   return Container(
     color: Colors.black,
+    width: MediaQuery.of(context).size.width,
     padding: const EdgeInsets.fromLTRB(20.0, 35, 0, 35),
     child: Text(
       'LATEST NEWS',
