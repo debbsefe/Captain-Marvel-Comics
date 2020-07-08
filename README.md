@@ -19,5 +19,5 @@ This is a clone of the Captain Marvel homepage => https://www.marvel.com/charact
 ![alt text](https://github.com/debbsefe/Captain-Marvel-Comics/blob/media/3.jpeg?raw=true)
 ![alt text](https://github.com/debbsefe/Captain-Marvel-Comics/blob/media/4.jpeg?raw=true)
 
-
+## DOWNLOAD
 You can also download the apk release here => https://github.com/debbsefe/Captain-Marvel-Comics/releases/download/v.01-alpha/app-release.apk and test on your android device
